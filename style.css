@@ -1,0 +1,163 @@
+/* Exercício 2: Cartão de Contato — X-Men */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fundo roxo da página, igual à referência */
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 30px 16px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ---------- Cartão ---------- */
+.card {
+  width: 290px;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 8px;
+
+  /* RGBA: fundo branco com transparência */
+  background-color: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+  /* HSL: um matiz por cartão, variações geradas a partir dele */
+  --claro:  hsl(var(--hue), 100%, 65%);
+  --medio:  hsl(var(--hue), 90%, 52%);
+  --escuro: hsl(var(--hue), 85%, 28%);
+}
+
+.card--mutante   { --hue: 200; }  /* azul */
+.card--sentinela { --hue: 340; }  /* rosa */
+
+/* ---------- Topo com degradê ---------- */
+.card__topo {
+  height: 60px;
+  background: linear-gradient(135deg, var(--medio), var(--claro));
+}
+
+/* ---------- Avatar ---------- */
+.card__avatar {
+  width: 70px;
+  height: 70px;
+  margin: -35px auto 10px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background: radial-gradient(circle at 30% 30%, var(--claro), var(--escuro));
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Nome: grande e centralizado ---------- */
+.card__nome {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--escuro);
+}
+
+.card__cargo {
+  margin: 2px 0 16px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #888;
+}
+
+/* ---------- Caixa de informações ---------- */
+.info {
+  margin: 0 14px 14px;
+  padding: 4px 12px;
+  text-align: left;
+  border-left: 3px solid var(--medio);
+  border-radius: 6px;
+
+  /* RGBA com a cor do tema */
+  background-color: hsla(var(--hue), 80%, 50%, 0.06);
+}
+
+.info__linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 0.62rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.info__linha:last-child {
+  border-bottom: none;
+}
+
+/* text-align diferentes */
+.info__label {
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.info__valor {
+  text-align: right;
+  color: #777;
+}
+
+/* ---------- Tags (variações de lightness do mesmo matiz) ---------- */
+.tags {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.tag {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.tag--1 { background-color: hsl(var(--hue), 85%, 32%); }
+.tag--2 { background-color: hsl(var(--hue), 85%, 45%); }
+.tag--3 { background-color: hsl(var(--hue), 90%, 58%); }
+
+/* ---------- Botão ---------- */
+.btn {
+  display: block;
+  margin: 0 14px 14px;
+  padding: 11px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(90deg, var(--medio), var(--claro));
+  box-shadow: 0 4px 10px hsla(var(--hue), 90%, 40%, 0.35);
+}
+
+/* ---------- Rodapé ---------- */
+.card__rodape {
+  padding: 10px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #777;
+  border-top: 1px solid hsla(var(--hue), 80%, 50%, 0.25);
+  background-color: hsla(var(--hue), 80%, 50%, 0.06);
+}
